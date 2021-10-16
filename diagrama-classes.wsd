@@ -1,0 +1,119 @@
+@startuml Diagrama de classes Botrix Ações
+
+
+Orcamento -- Cliente
+Orcamento -- OrcamentoItem
+Orcamento -- Usuario
+Orcamento -- FormaPagamento
+Orcamento -- Produto
+
+Pedido -- Cliente
+Pedido -- PedidoItem
+Pedido -- Usuario
+Pedido -- FormaPagamento
+Pedido -- Produto
+
+GrupoProduto -- Produto
+
+class Usuario{
+    Guid Id
+    bool Ativo
+    string Email
+    string Autenticacao    
+    DateTime? Dataregistro                
+}
+
+class Cliente{
+    Guid Id
+    bool Ativo
+    String Nome
+    String RazaoSocial
+    String CNPJ
+    String CPF
+    String Rua
+    String Numero
+    String Complemento
+    String Bairro
+    String CidadeId
+    String CidadeNome
+    String CEP
+    String Fone
+    String Email
+    Decimal Limite
+}
+
+class GrupoProduto{
+    Guid Id
+    String Descricao    
+}
+
+class Produto{
+    Guid Id
+    String Nome
+    String Descricao
+    Decimal Preco
+    String UrlImagem
+}
+
+class FormaPagamento{
+    Guid Id
+    String Descricao
+    String[] Dias
+    Decimal Desconto
+}
+
+class Orcamento{
+    Guid Id
+    DateTime DataOrcamento
+    Guid ClienteId
+    Guid UsuarioId
+    Guid FormaPagamentoId
+    String Observacao    
+    OrcamentoItem[] Itens
+    Decimal QuantidadeDeItens
+    Decimal PrecoUnitario
+    Decimal TotalItens
+    Decimal TotalDesconto
+    Decimal TotalProdutos
+}
+
+class OrcamentoItem{
+    Guid Id    
+    Guid OrcamentoId
+    Guid ProdutoId
+    String Observacao
+    Decimal Quantidade
+    Decimal PrecoUnitario
+    Decimal Desconto
+    Decimal TotalUnitario
+    Decimal TotalItem
+}
+
+class Pedido{
+    Guid Id
+    DateTime DataPedido
+    Guid ClienteId
+    Guid UsuarioId
+    Guid FormaPagamentoId
+    String Observacao    
+    PedidoItem[] Itens
+    Decimal QuantidadeDeItens
+    Decimal PrecoUnitario
+    Decimal TotalItens
+    Decimal TotalDesconto
+    Decimal TotalProdutos
+}
+
+class PedidoItem{
+    Guid Id    
+    Guid PedidoId
+    Guid ProdutoId
+    String Observacao
+    Decimal Quantidade
+    Decimal PrecoUnitario
+    Decimal Desconto
+    Decimal TotalUnitario
+    Decimal TotalItem
+}
+
+@enduml
