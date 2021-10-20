@@ -29,5 +29,12 @@ dotnet ef migrations add usuarios_nome -c UStartContext --project ../Infrastruct
 ```
 
 
+## Configuração do banco de dados
 
-teste
+```
+Database=_BANCO_;
+Username=_USUARIO_;
+Password=_SENHA_;
+Host=_HOST_;
+Port=5432;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
+```
