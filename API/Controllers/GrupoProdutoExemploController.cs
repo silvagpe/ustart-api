@@ -10,7 +10,7 @@ namespace UStart.API.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/grupo-produto-exemplo")]
-    //[Authorize]
+    [Authorize]
     public class GrupoProdutoExemploController : ControllerBase
     {
         public GrupoProdutoExemploController()

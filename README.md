@@ -26,6 +26,9 @@ Como criar as migrations
 cd API
 dotnet ef migrations add usuarios -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 dotnet ef migrations add usuarios_nome -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
+#Criar grupo produto
+dotnet ef migrations add grupo_produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 ```
 
 
@@ -35,6 +38,13 @@ dotnet ef migrations add usuarios_nome -c UStartContext --project ../Infrastruct
 Database=_BANCO_;
 Username=_USUARIO_;
 Password=_SENHA_;
-Host=_HOST_;
+Host=ec2-52-200-68-5.compute-1.amazonaws.com;
 Port=5432;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
 ```
+
+
+## Postman
+
+Link
+https://www.postman.com/grey-satellite-490926/workspace/ustart-postman-public
+
