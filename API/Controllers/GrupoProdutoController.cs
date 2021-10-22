@@ -1,7 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UStart.Domain.Commands;
 using UStart.Domain.Contracts.Repositories;
+using UStart.Domain.Workflows;
 
 namespace UStart.API.Controllers
 {
@@ -13,10 +15,12 @@ namespace UStart.API.Controllers
     public class GrupoProdutoController : ControllerBase
     {
         private readonly IGrupoProdutoRepository grupoProdutoRepository;
+        private readonly GrupoProdutoWorkflow grupoProdutoWorkflow;
 
-        public GrupoProdutoController(IGrupoProdutoRepository grupoProdutoRepository)
+        public GrupoProdutoController(IGrupoProdutoRepository grupoProdutoRepository, GrupoProdutoWorkflow grupoProdutoWorkflow)
         {
             this.grupoProdutoRepository = grupoProdutoRepository;
+            this.grupoProdutoWorkflow = grupoProdutoWorkflow;
         }
 
         /// <summary>
@@ -39,6 +43,22 @@ namespace UStart.API.Controllers
         public IActionResult GetGrupoProduto([FromRoute] Guid id)
         {
             return Ok(grupoProdutoRepository.ConsultarPorId(id));
+        }
+
+
+        /// <summary>
+        /// Método para inserir no banco um regitro de grupo produto
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult AdicionarGrupoProduto([FromBody] GrupoProdutoCommand command )
+        {
+            grupoProdutoWorkflow.Add(command);
+            if (grupoProdutoWorkflow.IsValid()){
+                return Ok();
+            }
+            return BadRequest(grupoProdutoWorkflow.GetErrors());
         }
 
     }

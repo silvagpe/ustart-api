@@ -29,5 +29,9 @@ namespace UStart.Infrastructure.Repositories
             .Where(x => x.Descricao.ToLower().Contains(pesquisa))
             .ToList();
         }
+        
+        public void Add(GrupoProduto grupoProduto){
+            _context.GrupoProdutos.Add(grupoProduto);
+        }
     }
 }

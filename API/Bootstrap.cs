@@ -125,7 +125,8 @@ namespace UStart.API
         public static void RegisterWorkflows(IServiceCollection services)
         {
             // Register your workflows here
-            services.AddTransient<UsuarioWorkflow, UsuarioWorkflow>();
+            services.AddTransient<UsuarioWorkflow>();
+            services.AddTransient<GrupoProdutoWorkflow>();
         }
 
         public static void ConfigureAuthentication(IServiceCollection services, IConfiguration configuration)
