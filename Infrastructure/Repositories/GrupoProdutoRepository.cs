@@ -17,7 +17,8 @@ namespace UStart.Infrastructure.Repositories
             _context = context;
         }
 
-        public GrupoProduto ConsultarPorId(Guid id){
+        public GrupoProduto ConsultarPorId(Guid id)
+        {
             return _context.GrupoProdutos.FirstOrDefault(g => g.Id == id);
         }
 
@@ -30,17 +31,21 @@ namespace UStart.Infrastructure.Repositories
             .Where(x => x.Descricao.ToLower().Contains(pesquisa))
             .ToList();
         }
-        
-        public void Add(GrupoProduto grupoProduto){
-            _context.GrupoProdutos.Add(grupoProduto);
+
+        public void Add(GrupoProduto grupoProduto)
+        {
+            _context.GrupoProdutos.Add(grupoProduto);            
         }
 
-        public void Update(GrupoProduto grupoProduto){
+        public void Update(GrupoProduto grupoProduto)
+        {
             _context.GrupoProdutos.Update(grupoProduto);
         }
 
-        public void Delete(GrupoProduto grupoProduto){
-            if (_context.Entry(grupoProduto).State == EntityState.Detached){
+        public void Delete(GrupoProduto grupoProduto)
+        {
+            if (_context.Entry(grupoProduto).State == EntityState.Detached)
+            {
                 _context.GrupoProdutos.Attach(grupoProduto);
             }
             _context.GrupoProdutos.Remove(grupoProduto);

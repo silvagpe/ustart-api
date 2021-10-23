@@ -29,6 +29,8 @@ dotnet ef migrations add usuarios_nome -c UStartContext --project ../Infrastruct
 
 #Criar grupo produto
 dotnet ef migrations add grupo_produto -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+
+
 ```
 
 
@@ -38,7 +40,7 @@ dotnet ef migrations add grupo_produto -c UStartContext --project ../Infrastruct
 Database=_BANCO_;
 Username=_USUARIO_;
 Password=_SENHA_;
-Host=ec2-52-200-68-5.compute-1.amazonaws.com;
+Host=_HOST_;
 Port=5432;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;
 ```
 

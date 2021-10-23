@@ -13,6 +13,11 @@ namespace UStart.Domain.Entities
         {            
         }
 
+
+        /// <summary>
+        /// Inserir um grupo
+        /// </summary>
+        /// <param name="command"></param>
         public GrupoProduto(GrupoProdutoCommand command)
         {
             this.Id = command.Id == Guid.Empty ? Guid.NewGuid() : command.Id;
@@ -20,6 +25,10 @@ namespace UStart.Domain.Entities
             this.CodigoExterno = command.CodigoExterno;
         }
 
+        /// <summary>
+        /// Atualizar um grupo
+        /// </summary>
+        /// <param name="command"></param>
         public void Update(GrupoProdutoCommand command){
             this.Descricao = command.Descricao;
             this.CodigoExterno = command.CodigoExterno;
