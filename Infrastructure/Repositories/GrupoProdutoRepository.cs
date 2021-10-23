@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using UStart.Domain.Contracts.Repositories;
 using UStart.Domain.Entities;
 using UStart.Infrastructure.Context;
@@ -32,6 +33,17 @@ namespace UStart.Infrastructure.Repositories
         
         public void Add(GrupoProduto grupoProduto){
             _context.GrupoProdutos.Add(grupoProduto);
+        }
+
+        public void Update(GrupoProduto grupoProduto){
+            _context.GrupoProdutos.Update(grupoProduto);
+        }
+
+        public void Delete(GrupoProduto grupoProduto){
+            if (_context.Entry(grupoProduto).State == EntityState.Detached){
+                _context.GrupoProdutos.Attach(grupoProduto);
+            }
+            _context.GrupoProdutos.Remove(grupoProduto);
         }
     }
 }

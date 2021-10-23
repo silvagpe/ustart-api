@@ -1,3 +1,4 @@
+using System;
 using UStart.Domain.Commands;
 using UStart.Domain.Contracts.Repositories;
 using UStart.Domain.Entities;
@@ -33,6 +34,33 @@ namespace UStart.Domain.Workflows
             _unitOfWork.Commit();
 
             return grupoProduto;
+        }
+
+        public void Update(Guid id, GrupoProdutoCommand command){
+            
+            var grupoProduto = _grupoProdutoRepository.ConsultarPorId(id);
+            if (grupoProduto != null){
+                grupoProduto.Update(command);
+                _grupoProdutoRepository.Update(grupoProduto);
+                _unitOfWork.Commit();
+            }
+            else{
+                AddError("Grupo produto", "Grupo produto não pode ser encontrado", id);
+            }
+
+        }
+
+        public void Delete(Guid id){
+
+            //GrupoProduto grupoProduto = _grupoProdutoRepository.ConsultarPorId(id);
+
+            var grupoProduto = _grupoProdutoRepository.ConsultarPorId(id);
+            if (grupoProduto != null){
+                _grupoProdutoRepository.Delete(grupoProduto);
+                _unitOfWork.Commit();                
+            }else{
+                AddError("Grupo produto", "Grupo produto não pode ser encontrado", id);
+            }            
         }
     }
 }

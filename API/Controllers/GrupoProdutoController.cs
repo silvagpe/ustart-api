@@ -61,5 +61,25 @@ namespace UStart.API.Controllers
             return BadRequest(grupoProdutoWorkflow.GetErrors());
         }
 
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult AtualizarGrupoProduto([FromRoute] Guid id, [FromBody] GrupoProdutoCommand command )
+        {
+            grupoProdutoWorkflow.Update(id, command);
+            if (grupoProdutoWorkflow.IsValid()){
+                return Ok();
+            }
+            return BadRequest(grupoProdutoWorkflow.GetErrors());
+        }
+
+        [HttpDelete("{id}")]        
+        public IActionResult ExcluirGrupoProduto([FromRoute] Guid id)
+        {
+            grupoProdutoWorkflow.Delete(id);
+            if (grupoProdutoWorkflow.IsValid()){
+                return Ok();
+            }
+            return BadRequest(grupoProdutoWorkflow.GetErrors());
+        }
     }
 }

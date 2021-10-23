@@ -19,6 +19,11 @@ namespace UStart.Domain.Entities
             this.Descricao = command.Descricao;
             this.CodigoExterno = command.CodigoExterno;
         }
+
+        public void Update(GrupoProdutoCommand command){
+            this.Descricao = command.Descricao;
+            this.CodigoExterno = command.CodigoExterno;
+        }
     }
     
 }

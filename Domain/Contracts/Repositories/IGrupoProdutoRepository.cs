@@ -8,6 +8,8 @@ namespace UStart.Domain.Contracts.Repositories
     {
         void Add(GrupoProduto grupoProduto);
         GrupoProduto ConsultarPorId(Guid id);
+        void Delete(GrupoProduto grupoProduto);
         IEnumerable<GrupoProduto> Pesquisar(string pesquisa);
+        void Update(GrupoProduto grupoProduto);
     }
 }
