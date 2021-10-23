@@ -120,6 +120,7 @@ namespace UStart.API
             // Register your repositories here
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IGrupoProdutoRepository, GrupoProdutoRepository>();
+            services.AddTransient<IClienteRepository, ClienteRepository>();
         }
 
         public static void RegisterWorkflows(IServiceCollection services)
