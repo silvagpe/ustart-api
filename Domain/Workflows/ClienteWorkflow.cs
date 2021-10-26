@@ -10,9 +10,9 @@ namespace UStart.Domain.Workflows
     {
         private readonly IClienteRepository clienteRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public ClienteWorkflow(IClienteRepository clienteReposotory, IUnitOfWork unitOfWork)
+        public ClienteWorkflow(IClienteRepository clienteRepository, IUnitOfWork unitOfWork)
         {
-            clienteRepository = clienteReposotory;
+            this.clienteRepository = clienteRepository;
             _unitOfWork = unitOfWork;
         }
 

@@ -8,6 +8,9 @@ using UStart.Domain.Workflows;
 namespace UStart.API.Controllers
 {
 
+    /// <summary>
+    /// Exemplo de rota http://localhost:5000/api/v1/cliente/id
+    /// </summary>
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/cliente")]

@@ -41,8 +41,7 @@ namespace UStart.Domain.Entities
         }
 
         private void AtualizarCampos(ClienteCommand command)
-        {
-            this.Id = command.Id;        
+        {            
             CodigoExterno = command.CodigoExterno;                        
             Ativo = command.Ativo;                        
             Nome = command.Nome;                        
