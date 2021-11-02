@@ -1,5 +1,11 @@
 # Api - Projeto UStart
 
+## Projeto inicial
+
+Segue o código fonte do projeto inicial do curso
+https://github.com/silvagpe/ustart-api-inicial
+
+
 ## EF Core
 
 Instalar a ferramenta do EF no CLI
