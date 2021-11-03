@@ -32,7 +32,8 @@ namespace UStart.Infrastructure.Repositories
 
             return _context
             .Produtos            
-            .Where(x => x.Descricao.ToLower().Contains(pesquisa))
+            .Where(x => x.Descricao.ToLower().Contains(pesquisa)
+                || x.Nome.ToLower().Contains(pesquisa))
             .ToList();
         }
 
