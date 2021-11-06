@@ -52,6 +52,7 @@ namespace UStart.Domain.Entities
             Numero = command.Numero;                        
             Complemento = command.Complemento;                        
             Bairro = command.Bairro;                        
+            EstadoId = command.EstadoId;
             CidadeId = command.CidadeId;                        
             CidadeNome = command.CidadeNome;                        
             CEP = command.CEP;                        
